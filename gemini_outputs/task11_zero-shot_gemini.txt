@@ -1,0 +1,20 @@
+Prompt:
+Write a prompt that could generate the following prime-checking Python function based on its comment.
+
+`# This function checks if a number is prime
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True`
+
+---
+
+Model Output:
+Based on the Python comment "# This function checks if a number is prime", write a Python function called is_prime that takes an integer n as input and returns True if n is a prime number and False otherwise. Ensure the implementation includes optimizations for efficiency, such as checking divisibility only up to the square root of n.
+
+
+
+

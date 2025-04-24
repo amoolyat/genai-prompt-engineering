@@ -1,0 +1,53 @@
+Prompt:
+Example:
+Input: arr = [1, 3, 5, 7, 9], target = 5  
+Output: 2
+
+Finish the binary search implementation in Java by comparing and adjusting the search bounds.
+
+`public int binarySearch(int[] arr, int target) {
+    int left = 0, right = arr.length - 1;
+    while (left <= right) {
+        int mid = (left + right) / 2;
+        // TODO: Compare and adjust bounds
+    }
+    return -1;
+}`
+
+---
+
+Model Output:
+public int binarySearch(int[] arr, int target) {
+    int left = 0, right = arr.length - 1;
+    while (left <= right) {
+        int mid = left + (right - left) / 2; // Prevent potential overflow
+        if (arr[mid] == target) {
+            return mid; // Target found at index mid
+        } else if (arr[mid] < target) {
+            left = mid + 1; // Target is in the right half
+        } else {
+            right = mid - 1; // Target is in the left half
+        }
+    }
+    return -1; // Target not found
+}
+Explanation of the Added Logic:
+
+Calculate Midpoint:
+
+int mid = left + (right - left) / 2; calculates the middle index of the current search range. This way of calculating the midpoint is preferred over (left + right) / 2 to prevent potential integer overflow if left and right are very large.
+Comparison:
+
+if (arr[mid] == target): If the element at the middle index (arr[mid]) is equal to the target, we have found the target, and the function returns the index mid.
+Adjusting Bounds (Target is Greater):
+
+else if (arr[mid] < target): If the element at the middle index is less than the target, it means the target (if present) must be in the right half of the current search range. So, we update the left bound to mid + 1, effectively excluding the left half and the middle element from the next iteration.
+Adjusting Bounds (Target is Smaller):
+
+else { right = mid - 1; }: If the element at the middle index is greater than the target, it means the target (if present) must be in the left half of the current search range. So, we update the right bound to mid - 1, effectively excluding the right half and the middle element from the next iteration.
+Target Not Found:
+
+return -1;: If the while loop finishes without finding the target (i.e., left becomes greater than right), it means the target is not present in the array. In this case, the function returns -1.
+Key Idea of Binary Search:
+
+Binary search works on sorted arrays. It repeatedly divides the search interval in half. If the middle element is the target, the search is complete. 1  If the target is less than the middle element, the search continues 2  in the left half. If the target is greater than the middle element, the search continues in the right half. This process continues until the target is found or the search interval is empty.   

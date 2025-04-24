@@ -1,0 +1,54 @@
+Prompt:
+Implement a Flask API endpoint that returns a greeting based on the provided username.
+
+`from flask import Flask, jsonify
+app = Flask(__name__)
+@app.route('/greet/<username>')
+def greet(username):
+    # TODO: Return a JSON greeting
+    pass`
+
+---
+
+Model Output:
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+@app.route('/greet/<username>')
+def greet(username):
+    greeting = {"message": f"Hello, {username}! Welcome!"}
+    return jsonify(greeting)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+Explanation:
+
+Import necessary modules: We import Flask for creating the application and jsonify for converting Python dictionaries into JSON responses.
+Create a Flask application instance: app = Flask(__name__) initializes our Flask application.
+Define the API endpoint:
+@app.route('/greet/<username>') decorates the greet function, making it handle requests to the /greet/<username> URL.
+<username> is a path parameter. When a user visits a URL like /greet/Alice, the value "Alice" will be passed as the username argument to the greet function.
+Implement the greet function:
+greeting = {"message": f"Hello, {username}! Welcome!"} creates a Python dictionary. The dictionary has a key "message" and its value is a formatted string that includes the provided username.
+return jsonify(greeting) converts the Python dictionary into a JSON response. Flask automatically sets the correct Content-Type header to application/json.
+Run the Flask development server (for testing):
+if __name__ == '__main__': ensures that the following code only runs when the script is executed directly (not when imported as a module).
+app.run(debug=True) starts the Flask development server. The debug=True option enables debugging features, such as automatic reloading upon code changes and a more informative error page.
+How to run this API:
+
+Save the code as a Python file (e.g., app.py).
+Open your terminal or command prompt.
+Navigate to the directory where you saved the file.
+Run the command python app.py.
+Open your web browser or use a tool like curl to access the following URLs:
+http://127.0.0.1:5000/greet/Alice
+http://127.0.0.1:5000/greet/Bob
+http://127.0.0.1:5000/greet/YourUsername
+You will receive a JSON response like this:
+
+JSON
+
+{
+  "message": "Hello, Alice! Welcome!"
+}

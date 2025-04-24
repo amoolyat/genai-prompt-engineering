@@ -1,0 +1,50 @@
+Prompt:
+Example:
+Input: GET request to /greet/Alex
+Output: {"message": "Hello, Alex!"}
+
+Implement a Flask API endpoint that returns a greeting based on the provided username.
+
+`from flask import Flask, jsonify
+app = Flask(__name__)
+@app.route('/greet/<username>')
+def greet(username):
+    # TODO: Return a JSON greeting
+    pass`
+
+---
+
+Model Output:
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+@app.route('/greet/<username>')
+def greet(username):
+    greeting = {"message": f"Hello, {username}!"}
+    return jsonify(greeting)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+Explanation:
+
+We import the necessary components from the Flask library: Flask to create the application instance and jsonify to convert a Python dictionary into a JSON response.
+app = Flask(__name__) initializes our Flask application.
+The @app.route('/greet/<username>') decorator defines the endpoint.
+/greet/<username> specifies the URL path. The <username> part is a dynamic placeholder. When a request is made to a URL like /greet/Alice, the value "Alice" will be passed as the username argument to the greet function.
+Inside the greet function:
+greeting = {"message": f"Hello, {username}!"} creates a Python dictionary with a key "message" and a value that is a greeting string incorporating the username. The f-string makes it easy to embed the username.
+return jsonify(greeting) converts this Python dictionary into a JSON (JavaScript Object Notation) response. Flask automatically sets the correct Content-Type header for the response.
+The if __name__ == '__main__': block ensures that the Flask development server starts only when the script is run directly. app.run(debug=True) starts the server, and debug=True enables debugging mode, which is helpful during development as it provides more detailed error messages and automatically reloads the server when you make changes to the code.
+To run this API:
+
+Save the code as a Python file (e.g., app.py).
+Open your terminal or command prompt.
+Navigate to the directory where you saved the file.
+Run the command python app.py.
+You can then access the endpoint using a web browser or a tool like curl. For example, to get a greeting for "Alex", you would open http://127.0.0.1:5000/greet/Alex in your browser or run curl http://127.0.0.1:5000/greet/Alex in your terminal. The response will be the JSON:
+JSON
+
+{
+  "message": "Hello, Alex!"
+}

@@ -1,0 +1,11 @@
+Prompt:
+Identify the bug in the JavaScript function and fix it so it returns a proper boolean value.
+
+`function isEven(n) {
+    return n % 2; // Returns 1 or 0, not true/false
+}`
+
+---
+
+Model Output:
+The JavaScript function isEven(n) has a bug: it uses the modulo operator (%) which returns the remainder of the division (either 0 or 1), instead of a boolean true or false as its return value. While 0 is falsy and 1 is truthy in JavaScript's conditional contexts, it's not a proper boolean return for a function named isEven.

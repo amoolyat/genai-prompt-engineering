@@ -1,0 +1,18 @@
+Prompt:
+Complete the following Python function using a regex pattern to validate basic email addresses.
+
+`def is_valid_email(email):
+    # TODO: Complete using regex
+    pass`
+
+---
+
+Model Output:
+import re
+
+def is_valid_email(email):
+    # Basic email validation regex: one or more alphanumeric characters, underscores, periods, or hyphens,
+    # followed by an @ symbol, followed by one or more alphanumeric characters, underscores, periods, or hyphens,
+    # followed by a period, followed by one or more letters.
+    pattern = r"^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$"
+    return bool(re.match(pattern, email))

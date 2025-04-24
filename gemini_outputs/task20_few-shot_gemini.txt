@@ -1,0 +1,26 @@
+Prompt:
+Example:
+Input: [80, 90, 100]  
+Output: 90.0
+
+Complete this Python function to return the average of a list of scores.
+
+`def calculate_average(scores):
+    total = 0
+    # TODO: Complete to return average
+    pass`
+
+---
+
+Model Output:
+Explanation:
+
+Initialization: The function starts by initializing a variable total to 0. This variable will accumulate the sum of all the scores in the list.
+
+Handling Empty List: The if not scores: condition checks if the input list scores is empty. If it is, attempting to calculate the average would lead to a ZeroDivisionError. To handle this gracefully, the function returns 0.0 in the case of an empty list. This is a common way to manage such scenarios, though you might choose to raise an exception or return a different value depending on the specific requirements of your application.
+
+Iterating Through Scores: The for score in scores: loop iterates through each element in the scores list. In each iteration, the current score is added to the total.
+
+Calculating the Average: After the loop has processed all the scores, the average is calculated by dividing the total sum by the number of scores in the list, which is obtained using len(scores).
+
+Returning the Average: Finally, the calculated average is returned by the function. The return value will be a floating-point number, even if all the input scores are integers, to ensure accurate representation of the average.

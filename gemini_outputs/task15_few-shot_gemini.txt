@@ -1,0 +1,38 @@
+Prompt:
+Example:
+Input: Person("Alice", 25)  
+Output: An object with name = "Alice", age = 25, and email = None
+
+Finish the Python class constructor by adding name, age, and an optional email field.
+
+`class Person:
+    def __init__(self):
+        # TODO: Add name, age, and optional email
+        pass`
+
+---
+Model Output:
+
+Explanation:
+
+The __init__ method is the constructor for the Person class. It's called automatically when you create a new Person object.
+We've added three parameters to the constructor:
+name: This parameter is required and will be used to initialize the self.name attribute of the Person object.
+age: This parameter is also required and will initialize the self.age attribute.
+email: This parameter is optional. It has a default value of None. If you provide an email address when creating a Person object, it will be assigned to the self.email attribute; otherwise, self.email will be None.
+Inside the constructor, we assign the values passed as arguments to the corresponding attributes of the self object using self.attribute_name = parameter_name.
+How to use it:
+
+Python
+
+# Creating a Person object with name and age
+person1 = Person("Alice", 25)
+print(f"Name: {person1.name}, Age: {person1.age}, Email: {person1.email}")
+
+# Creating a Person object with name, age, and email
+person2 = Person("Bob", 30, "bob@example.com")
+print(f"Name: {person2.name}, Age: {person2.age}, Email: {person2.email}")
+This will output:
+
+Name: Alice, Age: 25, Email: None
+Name: Bob, Age: 30, Email: bob@example.com

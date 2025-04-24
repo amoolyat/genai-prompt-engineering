@@ -1,0 +1,11 @@
+Prompt:
+Write a brief summary of what this Python function does with a sentence as input.
+
+`def reverse_words(sentence):
+    return ' '.join(sentence.split()[::-1])`
+
+---
+
+Model Output:
+This Python function takes a sentence as input, splits it into individual words, reverses the order of these words, and then joins them back together into a new string with spaces in between.
+

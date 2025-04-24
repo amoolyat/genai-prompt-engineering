@@ -1,0 +1,50 @@
+Prompt:
+Example:
+Input: A review app with users, books, and reviews.
+Output: Tables with foreign keys connecting reviews to users and books.
+
+Design a SQL schema for a review app involving users, books, and reviews.
+
+`-- Tables: users(id, name), books(id, title), reviews(id, user_id, book_id, rating)
+-- TODO: Design schema with appropriate keys and constraints`
+
+---
+
+Model Output:
+-- Table: users
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name VARCHAR(255) NOT NULL
+);
+
+-- Table: books
+CREATE TABLE books (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title VARCHAR(255) NOT NULL UNIQUE
+);
+
+-- Table: reviews
+CREATE TABLE reviews (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    book_id INTEGER NOT NULL,
+    rating INTEGER NOT NULL,
+    review_text TEXT, -- Optional: Allow users to write a text review
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (book_id) REFERENCES books(id),
+    -- Ensure a user can only review a book once
+    UNIQUE (user_id, book_id),
+    -- Consider adding a constraint for the rating range (e.g., 1-5)
+    CHECK (rating >= 1 AND rating <= 5)
+);
+
+-- Index for faster lookups on user_id
+CREATE INDEX idx_user_id ON reviews (user_id);
+
+-- Index for faster lookups on book_id
+CREATE INDEX idx_book_id ON reviews (book_id);
+
+This schema establishes the necessary relationships between users, books, and reviews using foreign keys and ensures data integrity through constraints. The indexes are added to improve query performance.
+

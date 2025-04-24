@@ -1,0 +1,13 @@
+Prompt:
+Resolve the inconsistency between this C++ function's name and its logic.
+
+`// Supposed to return true if x is even
+bool isOdd(int x) {
+    return x % 2 == 0; // Logic contradicts function name
+}`
+
+---
+
+Model Output:
+The function name isOdd is inconsistent with its logic, which returns true if x is even. To resolve this, either the name should be changed to isEven, or the logic should be modified to return x % 2 != 0; to correctly check for odd numbers. Given the comment, the best fix is to rename the function to isEven.
+

@@ -1,0 +1,47 @@
+Prompt:
+Example:
+Input: A function that returns -1 if input is negative, else returns square of input  
+Output: Step 1: Check if input is negative  
+        Step 2: If so, return -1  
+        Step 3: Else, return square of input
+
+Break down the logic of this C++ function based on the provided high-level comment.
+
+`// Function that validates input, calculates square, and returns result
+int process(int x) {
+    if (x < 0) return -1;
+    return x * x;
+}`
+
+---
+
+Model Output:
+Let's break down the logic of the C++ function process(int x) step by step, considering the function's code and the high-level comment provided:
+
+High-Level Comment: "// Function that validates input, calculates square, and returns result"
+
+Code Analysis:
+
+C++
+
+int process(int x) {
+    if (x < 0) return -1;
+    return x * x;
+}
+Step-by-Step Breakdown:
+
+Function Definition: The code defines a function named process that takes a single integer argument, x, and is declared to return an integer value.
+
+Input Validation (as implied by the comment): The first line within the function, if (x < 0), performs a check on the input value x. This can be interpreted as a form of input validation. The function is examining whether the input integer is negative.
+
+Conditional Return (Negative Input): If the condition x < 0 evaluates to true (meaning the input x is indeed negative), the function immediately executes the statement return -1;. This indicates that for negative input values, the function returns the integer value -1. This could be interpreted as an error code or a specific value indicating an invalid input according to the function's implicit validation rule.
+
+Conditional Return (Non-Negative Input) and Calculation: If the condition x < 0 evaluates to false (meaning the input x is not negative; it is either zero or positive), the function proceeds to the next line: return x * x;. This line calculates the square of the input integer x by multiplying it by itself. The result of this calculation is then returned by the function. This part aligns with the comment's mention of "calculates square" and "returns result".
+
+In summary, the function process(int x) performs the following logic:
+
+It takes an integer x as input.
+It checks if x is negative.
+If x is negative, it returns -1.
+If x is not negative (i.e., zero or positive), it calculates the square of x and returns that value.
+The high-level comment accurately reflects the function's behavior: it implicitly validates the input by treating negative numbers specially, it calculates the square of the input for non-negative numbers, and it returns a result based on these operations.

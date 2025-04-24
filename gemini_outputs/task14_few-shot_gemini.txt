@@ -1,0 +1,35 @@
+Prompt:
+Example:
+Input: fibonacci(5)  
+Output: 5
+
+Complete the recursive Fibonacci function in Python with proper base cases and recursive logic.
+
+`def fibonacci(n):
+    # TODO: Base cases and recursive call
+    pass`
+
+---
+
+Model Output:
+Explanation:
+
+Base Cases:
+
+if n <= 0: return 0: This handles the base case for n being zero or negative. By definition, the 0th Fibonacci number is 0. While Fibonacci sequence is typically defined for non-negative integers, this handles edge cases gracefully.
+elif n == 1: return 1: This handles the other base case for n being 1. The 1st Fibonacci number is 1.
+Recursive Step:
+
+else: return fibonacci(n - 1) + fibonacci(n - 2): For any n greater than 1, the Fibonacci number is the sum of the previous two Fibonacci numbers. This line recursively calls the fibonacci function with n-1 and n-2 and returns their sum.
+How it works (for fibonacci(5)):
+
+fibonacci(5) calls fibonacci(4) + fibonacci(3)
+fibonacci(4) calls fibonacci(3) + fibonacci(2)
+fibonacci(3) calls fibonacci(2) + fibonacci(1) (returns 1)
+fibonacci(2) calls fibonacci(1) (returns 1) + fibonacci(0) (returns 0) -> returns 1
+fibonacci(3) returns 1 + 1 = 2
+fibonacci(2) returns 1
+fibonacci(4) returns 2 + 1 = 3
+fibonacci(3) returns 2
+fibonacci(5) returns 3 + 2 = 5
+This recursive approach clearly mirrors the mathematical definition of the Fibonacci sequence. However, it's worth noting that for larger values of n, this implementation can be inefficient due to repeated calculations of the same Fibonacci numbers. For better performance with larger inputs, an iterative approach or memoization would be more suitable.

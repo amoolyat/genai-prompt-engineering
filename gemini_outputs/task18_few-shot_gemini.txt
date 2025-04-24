@@ -1,0 +1,28 @@
+Prompt:
+Example:
+Input: isEven(4)  
+Output: true
+
+Identify the bug in the JavaScript function and fix it so it returns a proper boolean value.
+
+`function isEven(n) {
+    return n % 2; // Returns 1 or 0, not true/false
+}`
+
+---
+
+Model Output:
+The bug is that the function isEven returns a number (either 0 or 1) instead of a boolean (true or false). In JavaScript, 0 is considered "falsy" and 1 (or any non-zero number) is considered "truthy" in conditional contexts. However, for a function named isEven, it's best practice to explicitly return a boolean value.
+
+Here's the corrected function:
+
+JavaScript
+
+function isEven(n) {
+  return n % 2 === 0; // Returns true if the remainder is 0, false otherwise
+}
+Explanation of the Fix:
+
+n % 2: This part of the code calculates the remainder when n is divided by 2.
+=== 0: This is the strict equality operator. It checks if the remainder is strictly equal to 0. If it is, the expression evaluates to true (meaning n is even). If the remainder is 1 (meaning n is odd), the expression evaluates to false.
+Now, the isEven function will correctly return true for even numbers and false for odd numbers, as expected for a function with that name.

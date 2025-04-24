@@ -1,0 +1,14 @@
+Prompt:
+Break down the logic of this C++ function based on the provided high-level comment.
+
+`// Function that validates input, calculates square, and returns result
+int process(int x) {
+    if (x < 0) return -1;
+    return x * x;
+}`
+
+---
+
+Model Output:
+This C++ function process(int x) first validates the input x: if x is negative, it returns -1. Otherwise (if x is non-negative), it calculates the square of x and returns the result.
+

@@ -1,0 +1,138 @@
+Prompt:
+Implement the missing logic in this C function to delete a node from a linked list by its value.
+
+`struct Node {
+    int data;
+    struct Node* next;
+};
+void deleteNode(struct Node** head, int key) {
+    // TODO: Implement node deletion
+}`
+
+---
+
+Model Output:
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+void deleteNode(struct Node** head, int key) {
+    struct Node* current = *head;
+    struct Node* prev = NULL;
+
+    // Case 1: Key is in the head node
+    if (current != NULL && current->data == key) {
+        *head = current->next; // Change head
+        free(current);         // Free the old head
+        return;
+    }
+
+    // Search for the key in the rest of the list
+    while (current != NULL && current->data != key) {
+        prev = current;
+        current = current->next;
+    }
+
+    // Case 2: Key is not present in the list
+    if (current == NULL) {
+        return;
+    }
+
+    // Case 3: Key is found in a node other than the head
+    prev->next = current->next; // Unlink the node
+    free(current);             // Free the memory
+}
+
+// Helper function to print the linked list (for testing)
+void printList(struct Node* n) {
+    while (n != NULL) {
+        printf("%d -> ", n->data);
+        n = n->next;
+    }
+    printf("NULL\n");
+}
+
+// Helper function to create a new node (for testing)
+struct Node* newNode(int data) {
+    struct Node* node = (struct Node*)malloc(sizeof(struct Node));
+    node->data = data;
+    node->next = NULL;
+    return node;
+}
+
+int main() {
+    // Example usage:
+    struct Node* head = newNode(1);
+    head->next = newNode(2);
+    head->next->next = newNode(3);
+    head->next->next->next = newNode(4);
+    head->next->next->next->next = newNode(5);
+
+    printf("Original list: ");
+    printList(head);
+
+    deleteNode(&head, 3);
+    printf("List after deleting 3: ");
+    printList(head);
+
+    deleteNode(&head, 1);
+    printf("List after deleting head (1): ");
+    printList(head);
+
+    deleteNode(&head, 5);
+    printf("List after deleting tail (5): ");
+    printList(head);
+
+    deleteNode(&head, 6);
+    printf("List after deleting non-existent node (6): ");
+    printList(head);
+
+    // Free remaining memory (important in real applications)
+    struct Node* current = head;
+    struct Node* next;
+    while (current != NULL) {
+        next = current->next;
+        free(current);
+        current = next;
+    }
+    head = NULL;
+
+    return 0;
+}
+Explanation of the Implementation:
+
+Handle Empty List (Implicit): If the initial *head is NULL, the first if condition will fail, and the while loop will not execute, effectively doing nothing for an empty list, which is the correct behavior for deletion.
+
+Case 1: Key is in the Head Node:
+
+We check if the current node (initially the head) is not NULL and if its data matches the key.
+If it matches, we update the head pointer to point to the next node (*head = current->next).
+We then free(current) to release the memory occupied by the old head node.
+return is called because the node is deleted, and we don't need to search further.
+Search for the Key:
+
+We use a while loop to traverse the list.
+current points to the current node being examined.
+prev points to the node immediately preceding current.
+The loop continues as long as current is not NULL (we haven't reached the end of the list) and the data in the current node does not match the key.
+In each iteration, prev is updated to the current node, and current moves to the next node (current = current->next).
+Case 2: Key is Not Present:
+
+If the while loop finishes and current is NULL, it means we have reached the end of the list without finding the key. In this case, we simply return without doing anything.
+Case 3: Key is Found in a Node Other Than the Head:
+
+If the while loop finishes and current is not NULL, it means we have found the node with the matching key.
+prev->next = current->next;: We update the next pointer of the previous node (prev) to point to the node after the current node (current->next). This effectively removes the current node from the linked list.
+free(current);: We release the memory occupied by the deleted current node.
+How it Addresses Potential Issues:
+
+Deleting the Head: The special case at the beginning correctly handles the deletion of the first node in the list.
+Deleting a Node in the Middle: The prev pointer ensures that we can correctly update the links when deleting a node that is not the head.
+Deleting the Tail: When deleting the last node, current->next will be NULL, and prev->next will be set to NULL, correctly terminating the list.
+Key Not Found: The function gracefully handles the case where the key is not present in the list by simply returning without modifying the list.
+Memory Management: The free(current) calls are crucial to prevent memory leaks by releasing the memory of the deleted node.
+Remember to always handle memory management carefully in C to avoid leaks and other issues. The main function includes basic examples and memory cleanup for demonstration purposes. In a larger program, you would need to ensure proper memory management throughout your linked list operations.

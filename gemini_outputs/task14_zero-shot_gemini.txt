@@ -1,0 +1,20 @@
+Prompt:
+Complete the recursive Fibonacci function in Python with proper base cases and recursive logic.
+
+`def fibonacci(n):
+    # TODO: Base cases and recursive call
+    pass`
+
+---
+
+Model Output:
+def fibonacci(n):
+    if n <= 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
+
+While this recursive solution is clear and directly reflects the mathematical definition, it can be inefficient for larger values of n due to repeated calculations of the same Fibonacci numbers. For improved performance with larger inputs, consider using an iterative approach (with a loop) or memoization (caching previously computed results).
+

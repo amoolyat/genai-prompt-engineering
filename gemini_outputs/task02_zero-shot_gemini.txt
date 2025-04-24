@@ -1,0 +1,19 @@
+Prompt:
+Identify and fix the off-by-one error in the following Python function.
+
+`def sum_range(start, end):
+    total = 0
+    for i in range(start, end):
+        total += i
+    return total`
+
+---
+
+Model Output:
+def sum_range(start, end):
+    total = 0
+    for i in range(start, end + 1):
+        total += i
+    return total
+Now, range(start, end + 1) will generate numbers from start up to and including end, ensuring that the final value in the range is added to the total.
+

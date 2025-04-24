@@ -1,0 +1,20 @@
+Prompt:
+Classify the bug in this C++ function that returns a pointer to a local variable.
+
+`int* getArray(int size) {
+    int arr[size]; // Warning: local array
+    return arr;    // Bug: returning pointer to local variable
+}`
+
+---
+
+Model Output:
+The bug in this C++ function is a returning a pointer to a local variable error. This falls under the broader category of dangling pointer issues.
+
+Here's why it's a problem:
+
+Local Scope: The array arr is declared within the scope of the getArray function. This means its lifetime is limited to the execution of that function.
+Stack Allocation: Local variables like arr are typically allocated on the stack. When the getArray function finishes executing, the memory allocated to arr on the stack is deallocated.
+Dangling Pointer: The function returns a pointer that holds the memory address where arr was located. However, since that memory is no longer reserved for arr, the returned pointer now points to an invalid memory location. This is a "dangling pointer."
+Undefined Behavior: Attempting to dereference or use this dangling pointer in the calling function leads to undefined behavior. This means the program might crash, produce garbage values, or appear to work sometimes but fail unpredictably at other times.
+In summary, the bug is a dangerous practice because it returns a pointer to memory that is no longer guaranteed to hold the intended data, leading to potential crashes and unpredictable program behavior.

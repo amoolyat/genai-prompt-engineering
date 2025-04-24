@@ -1,0 +1,15 @@
+Prompt:
+Complete this Python function to return the average of a list of scores.
+
+`def calculate_average(scores):
+    total = 0
+    # TODO: Complete to return average
+    pass`
+
+---
+
+Model Output:
+def calculate_average(scores):
+    if not scores:
+        return 0.0
+    return sum(scores) / len(scores)

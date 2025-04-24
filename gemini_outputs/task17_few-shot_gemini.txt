@@ -1,0 +1,42 @@
+Prompt:
+Example:
+Input: Function name: isOdd, Logic: returns true if x is even  
+Output: Either fix the name to match the logic, or fix the logic to match the name
+
+Resolve the inconsistency between this C++ function's name and its logic.
+
+`// Supposed to return true if x is even
+bool isOdd(int x) {
+    return x % 2 == 0; // Logic contradicts function name
+}`
+
+---
+
+Model Output:
+There's a clear inconsistency here. The function is named isOdd, suggesting it should return true if the input x is odd. However, the logic return x % 2 == 0; actually returns true if x is even.
+
+Here are two ways to resolve this inconsistency:
+
+Option 1: Fix the Function Name to Match the Logic
+
+This is the simpler fix if the current logic is what's intended.
+
+C++
+
+// Returns true if x is even
+bool isEven(int x) {
+    return x % 2 == 0;
+}
+Option 2: Fix the Logic to Match the Function Name
+
+This is necessary if the function was indeed intended to check for odd numbers.
+
+C++
+
+// Returns true if x is odd
+bool isOdd(int x) {
+    return x % 2 != 0; // Or equivalently: return x % 2 == 1;
+}
+Which option to choose depends on the original intent of the function. If the function was always meant to check for even numbers, then renaming it to isEven is the correct solution. If the intention was to check for odd numbers, then the logic needs to be corrected.
+
+Given the comment explicitly states "// Supposed to return true if x is even", the best approach is to fix the function name.

@@ -1,0 +1,28 @@
+Prompt:
+Example:
+Input: "user@example.com"
+Output: True
+
+Input: "not-an-email"
+Output: False
+
+Complete the following Python function using a regex pattern to validate basic email addresses.
+
+`def is_valid_email(email):
+    # TODO: Complete using regex
+    pass`
+
+---
+
+Model Output:
+import re
+
+def is_valid_email(email):
+    # Basic email validation regex: one or more alphanumeric characters, periods, underscores, or hyphens
+    # before the @ symbol, followed by one or more alphanumeric characters, periods, or hyphens,
+    # then a period, and finally one or more letters for the top-level domain.
+    pattern = r"^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]+$"
+    return bool(re.match(pattern, email))
+
+Please note: This is a simplified email validation and might not catch all invalid email formats or accept all valid but less common ones. For more robust email validation, consider using a dedicated email validation library.
+

@@ -1,0 +1,21 @@
+Prompt:
+Example:
+Input: A comment that says "This function checks if a number is prime"
+Output: A Python function that checks if a number is prime using square root optimization
+
+Write a prompt that could generate the following prime-checking Python function based on its comment.
+
+`# This function checks if a number is prime
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True`
+
+---
+
+Model Output:
+Generate a Python function that adheres to the following comment: "# This function checks if a number is prime" and implement it with an efficient approach, such as using the square root for optimization.
+

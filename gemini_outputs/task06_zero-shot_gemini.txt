@@ -1,0 +1,76 @@
+Prompt:
+Design a SQL schema for a review app involving users, books, and reviews.
+
+`-- Tables: users(id, name), books(id, title), reviews(id, user_id, book_id, rating)
+-- TODO: Design schema with appropriate keys and constraints`
+
+---
+
+Model Output:
+-- Table: users
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name VARCHAR(255) NOT NULL
+);
+
+-- Table: books
+CREATE TABLE books (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title VARCHAR(255) NOT NULL UNIQUE
+);
+
+-- Table: reviews
+CREATE TABLE reviews (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    book_id INTEGER NOT NULL,
+    rating INTEGER NOT NULL,
+    review_text TEXT, -- Optional: Allow users to write a text review
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Automatically record when the review was created
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, -- Automatically update when the review is modified
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (book_id) REFERENCES books(id),
+    -- Ensure each user can only review a book once
+    UNIQUE (user_id, book_id),
+    -- Add constraints for the rating value (e.g., 1 to 5 stars)
+    CHECK (rating >= 1 AND rating <= 5)
+);
+
+-- Index for faster lookups on user_id
+CREATE INDEX idx_user_id ON reviews (user_id);
+
+-- Index for faster lookups on book_id
+CREATE INDEX idx_book_id ON reviews (book_id);
+
+-- Index for faster lookups on user_id and book_id together (for checking uniqueness)
+CREATE UNIQUE INDEX idx_user_book ON reviews (user_id, book_id);
+
+Explanation of the Schema:
+
+users Table:
+
+id: Integer, primary key, automatically incrementing to uniquely identify each user.
+name: VARCHAR (variable-length string), not null, to store the name of the user.
+books Table:
+
+id: Integer, primary key, automatically incrementing to uniquely identify each book.
+title: VARCHAR (variable-length string), not null and unique, to store the title of the book. The UNIQUE constraint ensures that there are no duplicate book titles in the database.
+reviews Table:
+
+id: Integer, primary key, automatically incrementing to uniquely identify each review.
+user_id: Integer, not null, foreign key referencing the id column of the users table. This establishes a relationship indicating which user wrote the review.
+book_id: Integer, not null, foreign key referencing the id column of the books table. This establishes a relationship indicating which book the review is for.
+rating: Integer, not null, storing the rating given by the user for the book.
+review_text: TEXT, optional field to allow users to write a more detailed review.
+created_at: TIMESTAMP, defaults to the current timestamp when a new review is created.
+updated_at: TIMESTAMP, defaults to the current timestamp and automatically updates to the current timestamp whenever the review is modified.
+FOREIGN KEY (user_id) REFERENCES users(id): Ensures referential integrity between the reviews and users tables. You cannot have a review by a user_id that doesn't exist in the users table.
+FOREIGN KEY (book_id) REFERENCES books(id): Ensures referential integrity between the reviews and books tables. You cannot have a review for a book_id that doesn't exist in the books table.
+UNIQUE (user_id, book_id): This constraint ensures that each user can only write one review for a specific book.
+CHECK (rating >= 1 AND rating <= 5): This constraint ensures that the rating value is within a valid range (e.g., 1 to 5 stars).
+Indexes:
+
+CREATE INDEX idx_user_id ON reviews (user_id);: Creates an index on the user_id column in the reviews table. This will speed up queries that filter or sort reviews by user.
+CREATE INDEX idx_book_id ON reviews (book_id);: Creates an index on the book_id column in the reviews table. This will speed up queries that filter or sort reviews by book.
+CREATE UNIQUE INDEX idx_user_book ON reviews (user_id, book_id);: While the UNIQUE constraint already creates an index, explicitly creating it with this name can sometimes be beneficial for query optimization and clarity.
+This schema provides a solid foundation for a review application, handling users, books, and their associated reviews with appropriate relationships and constraints to ensure data integrity. You can further extend this schema by adding more features like categories for books, user profiles, etc., as your application evolves.
