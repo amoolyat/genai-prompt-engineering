@@ -1,0 +1,222 @@
+[
+  {
+    "task_number": 1,
+    "strategy": "zero-shot",
+    "prompt": "Summarize the functionality of the following Java method that counts word frequencies in a list.\n\n`public Map<String, Integer> countWordFrequency(List<String> words) {\n    Map<String, Integer> freqMap = new HashMap<>();\n    for (String word : words) {\n        freqMap.put(word, freqMap.getOrDefault(word, 0) + 1);\n    }\n    return freqMap;\n}`"
+  },
+  {
+    "task_number": 1,
+    "strategy": "few-shot",
+    "prompt": "Example:\nInput: [example input related to task 1]\nOutput: [expected output]\n\nSummarize the functionality of the following Java method that counts word frequencies in a list.\n\n`public Map<String, Integer> countWordFrequency(List<String> words) {\n    Map<String, Integer> freqMap = new HashMap<>();\n    for (String word : words) {\n        freqMap.put(word, freqMap.getOrDefault(word, 0) + 1);\n    }\n    return freqMap;\n}`"
+  },
+  {
+    "task_number": 2,
+    "strategy": "zero-shot",
+    "prompt": "Identify and fix the off-by-one error in the following Python function.\n\n`def sum_range(start, end):\n    total = 0\n    for i in range(start, end):\n        total += i\n    return total`"
+  },
+  {
+    "task_number": 2,
+    "strategy": "few-shot",
+    "prompt": "Example:\nInput: [example input related to task 2]\nOutput: [expected output]\n\nIdentify and fix the off-by-one error in the following Python function.\n\n`def sum_range(start, end):\n    total = 0\n    for i in range(start, end):\n        total += i\n    return total`"
+  },
+  {
+    "task_number": 3,
+    "strategy": "zero-shot",
+    "prompt": "Classify the bug in this C++ function that returns a pointer to a local variable.\n\n`int* getArray(int size) {\n    int arr[size]; // Warning: local array\n    return arr;    // Bug: returning pointer to local variable\n}`"
+  },
+  {
+    "task_number": 3,
+    "strategy": "few-shot",
+    "prompt": "Example:\nInput: [example input related to task 3]\nOutput: [expected output]\n\nClassify the bug in this C++ function that returns a pointer to a local variable.\n\n`int* getArray(int size) {\n    int arr[size]; // Warning: local array\n    return arr;    // Bug: returning pointer to local variable\n}`"
+  },
+  {
+    "task_number": 4,
+    "strategy": "zero-shot",
+    "prompt": "Complete the following Python function using a regex pattern to validate basic email addresses.\n\n`def is_valid_email(email):\n    # TODO: Complete using regex\n    pass`"
+  },
+  {
+    "task_number": 4,
+    "strategy": "few-shot",
+    "prompt": "Example:\nInput: [example input related to task 4]\nOutput: [expected output]\n\nComplete the following Python function using a regex pattern to validate basic email addresses.\n\n`def is_valid_email(email):\n    # TODO: Complete using regex\n    pass`"
+  },
+  {
+    "task_number": 5,
+    "strategy": "zero-shot",
+    "prompt": "Implement a Flask API endpoint that returns a greeting based on the provided username.\n\n`from flask import Flask, jsonify\napp = Flask(__name__)\n@app.route('/greet/<username>')\ndef greet(username):\n    # TODO: Return a JSON greeting\n    pass`"
+  },
+  {
+    "task_number": 5,
+    "strategy": "few-shot",
+    "prompt": "Example:\nInput: [example input related to task 5]\nOutput: [expected output]\n\nImplement a Flask API endpoint that returns a greeting based on the provided username.\n\n`from flask import Flask, jsonify\napp = Flask(__name__)\n@app.route('/greet/<username>')\ndef greet(username):\n    # TODO: Return a JSON greeting\n    pass`"
+  },
+  {
+    "task_number": 6,
+    "strategy": "zero-shot",
+    "prompt": "Design a SQL schema for a review app involving users, books, and reviews.\n\n`-- Tables: users(id, name), books(id, title), reviews(id, user_id, book_id, rating)\n-- TODO: Design schema with appropriate keys and constraints`"
+  },
+  {
+    "task_number": 6,
+    "strategy": "few-shot",
+    "prompt": "Example:\nInput: [example input related to task 6]\nOutput: [expected output]\n\nDesign a SQL schema for a review app involving users, books, and reviews.\n\n`-- Tables: users(id, name), books(id, title), reviews(id, user_id, book_id, rating)\n-- TODO: Design schema with appropriate keys and constraints`"
+  },
+  {
+    "task_number": 7,
+    "strategy": "zero-shot",
+    "prompt": "Identify the null dereference risk in the following Java method and suggest a fix.\n\n`public int getLength(String s) {\n    return s.length(); // What if s is null?\n}`"
+  },
+  {
+    "task_number": 7,
+    "strategy": "few-shot",
+    "prompt": "Example:\nInput: [example input related to task 7]\nOutput: [expected output]\n\nIdentify the null dereference risk in the following Java method and suggest a fix.\n\n`public int getLength(String s) {\n    return s.length(); // What if s is null?\n}`"
+  },
+  {
+    "task_number": 8,
+    "strategy": "zero-shot",
+    "prompt": "Improve the given CSV parser to handle quoted fields properly.\n\n`def parse_csv_line(line):\n    return line.split(',')  # Incomplete: doesn't handle quoted fields`"
+  },
+  {
+    "task_number": 8,
+    "strategy": "few-shot",
+    "prompt": "Example:\nInput: [example input related to task 8]\nOutput: [expected output]\n\nImprove the given CSV parser to handle quoted fields properly.\n\n`def parse_csv_line(line):\n    return line.split(',')  # Incomplete: doesn't handle quoted fields`"
+  },
+  {
+    "task_number": 9,
+    "strategy": "zero-shot",
+    "prompt": "Convert the following Kotlin data class into a REST API using Ktor, with GET and POST endpoints.\n\n`data class Product(val id: Int, val name: String, val price: Double)\n// TODO: Create GET and POST endpoints using Ktor`"
+  },
+  {
+    "task_number": 9,
+    "strategy": "few-shot",
+    "prompt": "Example:\nInput: [example input related to task 9]\nOutput: [expected output]\n\nConvert the following Kotlin data class into a REST API using Ktor, with GET and POST endpoints.\n\n`data class Product(val id: Int, val name: String, val price: Double)\n// TODO: Create GET and POST endpoints using Ktor`"
+  },
+  {
+    "task_number": 10,
+    "strategy": "zero-shot",
+    "prompt": "Write a brief summary of what this Python function does with a sentence as input.\n\n`def reverse_words(sentence):\n    return ' '.join(sentence.split()[::-1])`"
+  },
+  {
+    "task_number": 10,
+    "strategy": "few-shot",
+    "prompt": "Example:\nInput: [example input related to task 10]\nOutput: [expected output]\n\nWrite a brief summary of what this Python function does with a sentence as input.\n\n`def reverse_words(sentence):\n    return ' '.join(sentence.split()[::-1])`"
+  },
+  {
+    "task_number": 11,
+    "strategy": "zero-shot",
+    "prompt": "Write a prompt that could generate the following prime-checking Python function based on its comment.\n\n`# This function checks if a number is prime\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n ** 0.5) + 1):\n        if n % i == 0:\n            return False\n    return True`"
+  },
+  {
+    "task_number": 11,
+    "strategy": "few-shot",
+    "prompt": "Example:\nInput: [example input related to task 11]\nOutput: [expected output]\n\nWrite a prompt that could generate the following prime-checking Python function based on its comment.\n\n`# This function checks if a number is prime\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n ** 0.5) + 1):\n        if n % i == 0:\n            return False\n    return True`"
+  },
+  {
+    "task_number": 12,
+    "strategy": "zero-shot",
+    "prompt": "Fix the factorial function to handle input 0 correctly.\n\n`def factorial(n):\n    result = 1\n    for i in range(1, n):\n        result *= i\n    return result`"
+  },
+  {
+    "task_number": 12,
+    "strategy": "few-shot",
+    "prompt": "Example:\nInput: [example input related to task 12]\nOutput: [expected output]\n\nFix the factorial function to handle input 0 correctly.\n\n`def factorial(n):\n    result = 1\n    for i in range(1, n):\n        result *= i\n    return result`"
+  },
+  {
+    "task_number": 13,
+    "strategy": "zero-shot",
+    "prompt": "Implement the missing logic in this C function to delete a node from a linked list by its value.\n\n`struct Node {\n    int data;\n    struct Node* next;\n};\nvoid deleteNode(struct Node** head, int key) {\n    // TODO: Implement node deletion\n}`"
+  },
+  {
+    "task_number": 13,
+    "strategy": "few-shot",
+    "prompt": "Example:\nInput: [example input related to task 13]\nOutput: [expected output]\n\nImplement the missing logic in this C function to delete a node from a linked list by its value.\n\n`struct Node {\n    int data;\n    struct Node* next;\n};\nvoid deleteNode(struct Node** head, int key) {\n    // TODO: Implement node deletion\n}`"
+  },
+  {
+    "task_number": 14,
+    "strategy": "zero-shot",
+    "prompt": "Complete the recursive Fibonacci function in Python with proper base cases and recursive logic.\n\n`def fibonacci(n):\n    # TODO: Base cases and recursive call\n    pass`"
+  },
+  {
+    "task_number": 14,
+    "strategy": "few-shot",
+    "prompt": "Example:\nInput: [example input related to task 14]\nOutput: [expected output]\n\nComplete the recursive Fibonacci function in Python with proper base cases and recursive logic.\n\n`def fibonacci(n):\n    # TODO: Base cases and recursive call\n    pass`"
+  },
+  {
+    "task_number": 15,
+    "strategy": "zero-shot",
+    "prompt": "Finish the Python class constructor by adding name, age, and an optional email field.\n\n`class Person:\n    def __init__(self):\n        # TODO: Add name, age, and optional email\n        pass`"
+  },
+  {
+    "task_number": 15,
+    "strategy": "few-shot",
+    "prompt": "Example:\nInput: [example input related to task 15]\nOutput: [expected output]\n\nFinish the Python class constructor by adding name, age, and an optional email field.\n\n`class Person:\n    def __init__(self):\n        # TODO: Add name, age, and optional email\n        pass`"
+  },
+  {
+    "task_number": 16,
+    "strategy": "zero-shot",
+    "prompt": "Finish the binary search implementation in Java by comparing and adjusting the search bounds.\n\n`public int binarySearch(int[] arr, int target) {\n    int left = 0, right = arr.length - 1;\n    while (left <= right) {\n        int mid = (left + right) / 2;\n        // TODO: Compare and adjust bounds\n    }\n    return -1;\n}`"
+  },
+  {
+    "task_number": 16,
+    "strategy": "few-shot",
+    "prompt": "Example:\nInput: [example input related to task 16]\nOutput: [expected output]\n\nFinish the binary search implementation in Java by comparing and adjusting the search bounds.\n\n`public int binarySearch(int[] arr, int target) {\n    int left = 0, right = arr.length - 1;\n    while (left <= right) {\n        int mid = (left + right) / 2;\n        // TODO: Compare and adjust bounds\n    }\n    return -1;\n}`"
+  },
+  {
+    "task_number": 17,
+    "strategy": "zero-shot",
+    "prompt": "Resolve the inconsistency between this C++ function's name and its logic.\n\n`// Supposed to return true if x is even\nbool isOdd(int x) {\n    return x % 2 == 0; // Logic contradicts function name\n}`"
+  },
+  {
+    "task_number": 17,
+    "strategy": "few-shot",
+    "prompt": "Example:\nInput: [example input related to task 17]\nOutput: [expected output]\n\nResolve the inconsistency between this C++ function's name and its logic.\n\n`// Supposed to return true if x is even\nbool isOdd(int x) {\n    return x % 2 == 0; // Logic contradicts function name\n}`"
+  },
+  {
+    "task_number": 18,
+    "strategy": "zero-shot",
+    "prompt": "Identify the bug in the JavaScript function and fix it so it returns a proper boolean value.\n\n`function isEven(n) {\n    return n % 2; // Returns 1 or 0, not true/false\n}`"
+  },
+  {
+    "task_number": 18,
+    "strategy": "few-shot",
+    "prompt": "Example:\nInput: [example input related to task 18]\nOutput: [expected output]\n\nIdentify the bug in the JavaScript function and fix it so it returns a proper boolean value.\n\n`function isEven(n) {\n    return n % 2; // Returns 1 or 0, not true/false\n}`"
+  },
+  {
+    "task_number": 19,
+    "strategy": "zero-shot",
+    "prompt": "Break down the logic of this C++ function based on the provided high-level comment.\n\n`// Function that validates input, calculates square, and returns result\nint process(int x) {\n    if (x < 0) return -1;\n    return x * x;\n}`"
+  },
+  {
+    "task_number": 19,
+    "strategy": "few-shot",
+    "prompt": "Example:\nInput: [example input related to task 19]\nOutput: [expected output]\n\nBreak down the logic of this C++ function based on the provided high-level comment.\n\n`// Function that validates input, calculates square, and returns result\nint process(int x) {\n    if (x < 0) return -1;\n    return x * x;\n}`"
+  },
+  {
+    "task_number": 20,
+    "strategy": "zero-shot",
+    "prompt": "Complete this Python function to return the average of a list of scores.\n\n`def calculate_average(scores):\n    total = 0\n    # TODO: Complete to return average\n    pass`"
+  },
+  {
+    "task_number": 20,
+    "strategy": "few-shot",
+    "prompt": "Example:\nInput: [example input related to task 20]\nOutput: [expected output]\n\nComplete this Python function to return the average of a list of scores.\n\n`def calculate_average(scores):\n    total = 0\n    # TODO: Complete to return average\n    pass`"
+  },
+  {
+    "task_number": 21,
+    "strategy": "zero-shot",
+    "prompt": "Analyze the Python utility script for logic or design flaws, and refactor it for better readability and safety.\n\n`import csv\ndef read_csv(filepath):\n    with open(filepath, 'r') as f:\n        return [row for row in csv.reader(f)]\n\ndef summarize_column(data, index):\n    values = [float(row[index]) for row in data[1:]]  # skip header\n    total = sum(values)\n    avg = total / len(values)\n    return total, avg\n\ndef main():\n    filepath = 'data.csv'\n    data = read_csv(filepath)\n    total, avg = summarize_column(data, 1)\n    print(\"Total:\", total)\n    print(\"Average:\", avg)\n\nif __name__ == '__main__':\n    main()`"
+  },
+  {
+    "task_number": 21,
+    "strategy": "few-shot",
+    "prompt": "Example:\nInput: [example input related to task 21]\nOutput: [expected output]\n\nAnalyze the Python utility script for logic or design flaws, and refactor it for better readability and safety.\n\n`import csv\ndef read_csv(filepath):\n    with open(filepath, 'r') as f:\n        return [row for row in csv.reader(f)]\n\ndef summarize_column(data, index):\n    values = [float(row[index]) for row in data[1:]]  # skip header\n    total = sum(values)\n    avg = total / len(values)\n    return total, avg\n\ndef main():\n    filepath = 'data.csv'\n    data = read_csv(filepath)\n    total, avg = summarize_column(data, 1)\n    print(\"Total:\", total)\n    print(\"Average:\", avg)\n\nif __name__ == '__main__':\n    main()`"
+  },
+  {
+    "task_number": 22,
+    "strategy": "zero-shot",
+    "prompt": "Complete this Python file-processing script to clean punctuation and count word frequencies robustly.\n\n`import string\ndef load_file(filepath):\n    with open(filepath, 'r') as f:\n        return f.readlines()\n\ndef clean_line(line):\n    # TODO: Remove punctuation and make lowercase\n    pass\n\ndef count_words(lines):\n    word_counts = {}\n    for line in lines:\n        clean = clean_line(line)\n        for word in clean.split():\n            word_counts[word] = word_counts.get(word, 0) + 1\n    return word_counts\n\ndef main():\n    filepath = 'input.txt'\n    lines = load_file(filepath)\n    counts = count_words(lines)\n    for word, count in sorted(counts.items()):\n        print(f\"{word}: {count}\")\n\nif __name__ == '__main__':\n    main()`"
+  },
+  {
+    "task_number": 22,
+    "strategy": "few-shot",
+    "prompt": "Example:\nInput: [example input related to task 22]\nOutput: [expected output]\n\nComplete this Python file-processing script to clean punctuation and count word frequencies robustly.\n\n`import string\ndef load_file(filepath):\n    with open(filepath, 'r') as f:\n        return f.readlines()\n\ndef clean_line(line):\n    # TODO: Remove punctuation and make lowercase\n    pass\n\ndef count_words(lines):\n    word_counts = {}\n    for line in lines:\n        clean = clean_line(line)\n        for word in clean.split():\n            word_counts[word] = word_counts.get(word, 0) + 1\n    return word_counts\n\ndef main():\n    filepath = 'input.txt'\n    lines = load_file(filepath)\n    counts = count_words(lines)\n    for word, count in sorted(counts.items()):\n        print(f\"{word}: {count}\")\n\nif __name__ == '__main__':\n    main()`"
+  }
+]
