@@ -1,0 +1,21 @@
+Prompt:
+Example:
+Input: [80, 90, 100]  
+Output: 90.0
+
+Complete this Python function to return the average of a list of scores.
+
+`def calculate_average(scores):
+    total = 0
+    # TODO: Complete to return average
+    pass`
+
+---
+
+Model Output:
+def calculate_average(scores):
+    total = sum(scores)
+    return total / len(scores)
+
+# This function calculates the total of the scores list
+# and returns the average by dividing the total by the number of elements.

@@ -1,0 +1,27 @@
+Prompt:
+Example:
+Input: n = 0  
+Output: 1
+
+Fix the factorial function to handle input 0 correctly.
+
+`def factorial(n):
+    result = 1
+    for i in range(1, n):
+        result *= i
+    return result`
+
+---
+
+Model Output:
+The current function does not correctly return 1 when `n = 0`, because `range(1, 0)` results in an empty loop and skips the multiplication.
+
+Here’s a corrected version:
+
+def factorial(n):
+    result = 1
+    for i in range(1, n + 1):
+        result *= i
+    return result
+
+This ensures that the loop runs at least once when `n > 0`, and still returns 1 when `n = 0`, which is the mathematically correct factorial value.

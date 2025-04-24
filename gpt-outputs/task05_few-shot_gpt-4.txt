@@ -1,0 +1,27 @@
+Prompt:
+Example:
+Input: GET request to /greet/Alex
+Output: {"message": "Hello, Alex!"}
+
+Implement a Flask API endpoint that returns a greeting based on the provided username.
+
+`from flask import Flask, jsonify
+app = Flask(__name__)
+@app.route('/greet/<username>')
+def greet(username):
+    # TODO: Return a JSON greeting
+    pass`
+
+---
+
+Model Output:
+Here is the completed Flask API endpoint:
+
+from flask import Flask, jsonify
+app = Flask(__name__)
+
+@app.route('/greet/<username>')
+def greet(username):
+    return jsonify({"message": f"Hello, {username}!"})
+
+This route dynamically captures the `<username>` from the URL and returns a JSON response with a personalized greeting.

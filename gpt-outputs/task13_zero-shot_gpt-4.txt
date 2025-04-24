@@ -1,0 +1,41 @@
+Prompt:
+Implement the missing logic in this C function to delete a node from a linked list by its value.
+
+`struct Node {
+    int data;
+    struct Node* next;
+};
+void deleteNode(struct Node** head, int key) {
+    // TODO: Implement node deletion
+}`
+
+---
+
+Model Output:
+void deleteNode(struct Node** head, int key) {
+    struct Node* temp = *head;
+    struct Node* prev = NULL;
+
+    // If the head node itself holds the key
+    if (temp != NULL && temp->data == key) {
+        *head = temp->next;
+        free(temp);
+        return;
+    }
+
+    // Search for the key
+    while (temp != NULL && temp->data != key) {
+        prev = temp;
+        temp = temp->next;
+    }
+
+    // If the key was not found
+    if (temp == NULL) return;
+
+    // Unlink the node from the list
+    prev->next = temp->next;
+    free(temp);
+}
+This solution walks through the list, checks if the node to delete is the head, and otherwise removes the correct node by updating the previous node’s pointer.
+
+

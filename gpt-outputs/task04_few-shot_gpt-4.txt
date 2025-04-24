@@ -1,0 +1,28 @@
+Prompt:
+Example:
+Input: "user@example.com"
+Output: True
+
+Input: "not-an-email"
+Output: False
+
+Complete the following Python function using a regex pattern to validate basic email addresses.
+
+`def is_valid_email(email):
+    # TODO: Complete using regex
+    pass`
+
+---
+
+Model Output:
+You can use the `re` module in Python to validate basic email formats.
+
+Here’s a completed version of the function:
+
+import re
+
+def is_valid_email(email):
+    pattern = r'^[\\w\\.-]+@[\\w\\.-]+\\.\\w+$'
+    return re.match(pattern, email) is not None
+
+This function returns True if the input string matches a basic email pattern, and False otherwise. It allows alphanumeric characters, dots, and hyphens before and after the `@`, and ensures there is a domain suffix after the final dot.

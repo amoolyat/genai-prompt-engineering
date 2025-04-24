@@ -1,0 +1,31 @@
+Prompt:
+Example:
+Input: A review app with users, books, and reviews.
+Output: Tables with foreign keys connecting reviews to users and books.
+
+Design a SQL schema for a review app involving users, books, and reviews.
+
+`-- Tables: users(id, name), books(id, title), reviews(id, user_id, book_id, rating)
+-- TODO: Design schema with appropriate keys and constraints`
+
+---
+
+Model Output:
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL
+);
+
+CREATE TABLE books (
+    id INTEGER PRIMARY KEY,
+    title TEXT NOT NULL
+);
+
+CREATE TABLE reviews (
+    id INTEGER PRIMARY KEY,
+    user_id INTEGER NOT NULL,
+    book_id INTEGER NOT NULL,
+    rating INTEGER CHECK (rating >= 1 AND rating <= 5),
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (book_id) REFERENCES books(id)
+);

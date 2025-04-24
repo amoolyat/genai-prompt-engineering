@@ -1,0 +1,28 @@
+Prompt:
+Example:
+Input: A function that returns a pointer to a local array.
+Output: Bug type: Use-after-scope / dangling pointer. Local variables are deallocated once the function returns.
+
+Classify the bug in this C++ function that returns a pointer to a local variable.
+
+`int* getArray(int size) {
+    int arr[size]; // Warning: local array
+    return arr;    // Bug: returning pointer to local variable
+}`
+
+
+---
+
+Model Output:
+This function contains a **dangling pointer bug**. The array `arr` is a local variable allocated on the stack. When the function `getArray` returns, the memory for `arr` is deallocated, and returning its address results in a pointer to invalid memory.
+
+**Bug type:** Use-after-scope / Dangling pointer
+
+To fix this, you should dynamically allocate the array using `new`:
+
+int* getArray(int size) {
+    int* arr = new int[size];
+    return arr;
+}
+
+Just make sure the caller is responsible for deleting the allocated memory to avoid a memory leak.

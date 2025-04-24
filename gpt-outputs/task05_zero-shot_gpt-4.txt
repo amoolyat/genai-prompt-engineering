@@ -1,0 +1,23 @@
+Prompt:
+Implement a Flask API endpoint that returns a greeting based on the provided username.
+
+`from flask import Flask, jsonify
+app = Flask(__name__)
+@app.route('/greet/<username>')
+def greet(username):
+    # TODO: Return a JSON greeting
+    pass`
+
+---
+
+Model Output:
+Here's a completed implementation of the Flask API endpoint:
+
+from flask import Flask, jsonify
+app = Flask(__name__)
+
+@app.route('/greet/<username>')
+def greet(username):
+    return jsonify({"message": f"Hello, {username}!"})
+
+This function will return a JSON response containing a greeting message for the provided username when accessed via a GET request to `/greet/<username>`.

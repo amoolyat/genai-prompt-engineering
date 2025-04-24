@@ -1,0 +1,44 @@
+Prompt:
+Convert the following Kotlin data class into a REST API using Ktor, with GET and POST endpoints.
+
+`data class Product(val id: Int, val name: String, val price: Double)
+// TODO: Create GET and POST endpoints using Ktor`
+
+---
+
+Model Output:
+import io.ktor.application.*
+import io.ktor.features.*
+import io.ktor.http.*
+import io.ktor.request.*
+import io.ktor.response.*
+import io.ktor.routing.*
+import io.ktor.server.engine.*
+import io.ktor.server.netty.*
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
+import io.ktor.serialization.*
+
+@Serializable
+data class Product(val id: Int, val name: String, val price: Double)
+
+val productList = mutableListOf<Product>()
+
+fun main() {
+    embeddedServer(Netty, port = 8080) {
+        install(ContentNegotiation) {
+            json()
+        }
+        routing {
+            get("/products") {
+                call.respond(productList)
+            }
+            post("/products") {
+                val product = call.receive<Product>()
+                productList.add(product)
+                call.respond(HttpStatusCode.Created, product)
+            }
+        }
+    }.start(wait = true)
+}
+

@@ -1,0 +1,15 @@
+Prompt:
+Summarize the functionality of the following Java method that counts word frequencies in a list.
+
+`public Map<String, Integer> countWordFrequency(List<String> words) {
+    Map<String, Integer> freqMap = new HashMap<>();
+    for (String word : words) {
+        freqMap.put(word, freqMap.getOrDefault(word, 0) + 1);
+    }
+    return freqMap;
+}`
+
+---
+
+Model Output:
+This Java method takes a list of strings as input and returns a map that shows how many times each word appears in the list. It uses a HashMap to store the word frequencies, looping through the list and updating the count for each word using `getOrDefault`. The result is a frequency map where the key is the word and the value is the number of times it occurs.

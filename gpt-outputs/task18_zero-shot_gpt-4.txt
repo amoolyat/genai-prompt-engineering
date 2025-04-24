@@ -1,0 +1,18 @@
+Prompt:
+Identify the bug in the JavaScript function and fix it so it returns a proper boolean value.
+
+`function isEven(n) {
+    return n % 2; // Returns 1 or 0, not true/false
+}`
+
+---
+
+Model Output:
+// Bug: The function returns 1 or 0, which are not strictly boolean values.
+// Fix: Use a comparison to return true or false.
+
+function isEven(n) {
+    return n % 2 === 0;
+}
+This updated function now returns true for even numbers and false for odd ones — consistent with its name and expected behavior.
+

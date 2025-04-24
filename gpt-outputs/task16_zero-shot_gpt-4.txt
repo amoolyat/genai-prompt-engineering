@@ -1,0 +1,30 @@
+Prompt:
+Finish the binary search implementation in Java by comparing and adjusting the search bounds.
+
+`public int binarySearch(int[] arr, int target) {
+    int left = 0, right = arr.length - 1;
+    while (left <= right) {
+        int mid = (left + right) / 2;
+        // TODO: Compare and adjust bounds
+    }
+    return -1;
+}`
+
+---
+
+Model Output:
+public int binarySearch(int[] arr, int target) {
+    int left = 0, right = arr.length - 1;
+    while (left <= right) {
+        int mid = (left + right) / 2;
+        if (arr[mid] == target) {
+            return mid;
+        } else if (arr[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return -1;
+}
+This code uses standard binary search logic to efficiently locate the target in a sorted array.

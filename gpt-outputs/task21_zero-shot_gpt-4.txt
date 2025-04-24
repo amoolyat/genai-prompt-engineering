@@ -1,0 +1,59 @@
+Prompt:
+Analyze the Python utility script for logic or design flaws, and refactor it for better readability and safety.
+
+`import csv
+def read_csv(filepath):
+    with open(filepath, 'r') as f:
+        return [row for row in csv.reader(f)]
+
+def summarize_column(data, index):
+    values = [float(row[index]) for row in data[1:]]  # skip header
+    total = sum(values)
+    avg = total / len(values)
+    return total, avg
+
+def main():
+    filepath = 'data.csv'
+    data = read_csv(filepath)
+    total, avg = summarize_column(data, 1)
+    print("Total:", total)
+    print("Average:", avg)
+
+if __name__ == '__main__':
+    main()`
+
+---
+
+Model Output:
+import csv
+import os
+
+def read_csv(filepath):
+    """Reads a CSV file and returns its contents as a list of rows."""
+    if not os.path.exists(filepath):
+        raise FileNotFoundError(f"File not found: {filepath}")
+    with open(filepath, 'r', newline='') as file:
+        return list(csv.reader(file))
+
+def summarize_column(data, index):
+    """Calculates the total and average of the specified column in the CSV (skipping the header)."""
+    try:
+        values = [float(row[index]) for row in data[1:] if row[index]]
+        total = sum(values)
+        avg = total / len(values)
+        return total, avg
+    except (ValueError, IndexError, ZeroDivisionError) as e:
+        raise RuntimeError(f"Error summarizing column {index}: {e}")
+
+def main():
+    filepath = 'data.csv'
+    try:
+        data = read_csv(filepath)
+        total, avg = summarize_column(data, 1)
+        print(f"Total: {total}")
+        print(f"Average: {avg}")
+    except Exception as e:
+        print(f"Failed to process file: {e}")
+
+if __name__ == '__main__':
+    main()

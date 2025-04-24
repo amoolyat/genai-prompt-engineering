@@ -1,0 +1,23 @@
+Prompt:
+Example:
+Input: isEven(4)  
+Output: true
+
+Identify the bug in the JavaScript function and fix it so it returns a proper boolean value.
+
+`function isEven(n) {
+    return n % 2; // Returns 1 or 0, not true/false
+}`
+
+---
+
+Model Output:
+// The current function returns 0 for even and 1 for odd,
+// which are truthy and falsy but not explicitly boolean values.
+
+function isEven(n) {
+    return n % 2 === 0;
+}
+
+// This version correctly returns `true` for even numbers
+// and `false` for odd numbers.

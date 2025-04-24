@@ -1,0 +1,26 @@
+Prompt:
+Example:
+Input: s = null  
+Output: Should return 0 instead of throwing an exception
+
+Identify the null dereference risk in the following Java method and suggest a fix.
+
+`public int getLength(String s) {
+    return s.length(); // What if s is null?
+}`
+
+---
+
+Model Output:
+The method `getLength` is at risk of throwing a `NullPointerException` if the input string `s` is null.
+
+To prevent this, add a null check before calling `s.length()`:
+
+public int getLength(String s) {
+    if (s == null) {
+        return 0; // Handle null case appropriately
+    }
+    return s.length();
+}
+
+This fix ensures the method safely handles null input without crashing the program.

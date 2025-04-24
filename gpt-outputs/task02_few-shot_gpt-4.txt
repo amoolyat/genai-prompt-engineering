@@ -1,0 +1,27 @@
+Example:
+Input: start = 1, end = 5
+Output: 15  # because 1 + 2 + 3 + 4 + 5 = 15
+
+Identify and fix the off-by-one error in the following Python function.
+
+`def sum_range(start, end):
+    total = 0
+    for i in range(start, end):
+        total += i
+    return total`
+
+
+---
+
+Model Output:
+The current implementation does not include the `end` value in the sum because Python’s `range(start, end)` excludes the end value. To fix the off-by-one error, update the range to go up to `end + 1`.
+
+Corrected function:
+
+def sum_range(start, end):
+    total = 0
+    for i in range(start, end + 1):
+        total += i
+    return total
+
+This ensures that the `end` value is included in the final sum.

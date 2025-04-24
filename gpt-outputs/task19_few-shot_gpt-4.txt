@@ -1,0 +1,29 @@
+Prompt:
+Example:
+Input: A function that returns -1 if input is negative, else returns square of input  
+Output: Step 1: Check if input is negative  
+        Step 2: If so, return -1  
+        Step 3: Else, return square of input
+
+Break down the logic of this C++ function based on the provided high-level comment.
+
+`// Function that validates input, calculates square, and returns result
+int process(int x) {
+    if (x < 0) return -1;
+    return x * x;
+}`
+
+---
+
+Model Output:
+Step-by-step breakdown:
+
+1. Input validation:
+   - The function first checks if the input value `x` is less than 0.
+   - If `x < 0`, it returns `-1` to indicate an invalid or unacceptable input.
+
+2. Main logic:
+   - If the input passes the validation (i.e., it's zero or positive), the function proceeds to compute the square of `x`.
+
+3. Return value:
+   - The result returned is `x * x`, which is the square of the input value.

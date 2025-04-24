@@ -1,0 +1,25 @@
+Prompt:
+Example:
+Input: Function name: isOdd, Logic: returns true if x is even  
+Output: Either fix the name to match the logic, or fix the logic to match the name
+
+Resolve the inconsistency between this C++ function's name and its logic.
+
+`// Supposed to return true if x is even
+bool isOdd(int x) {
+    return x % 2 == 0; // Logic contradicts function name
+}`
+
+---
+
+Model Output:
+// Option 1: Fix the function name
+bool isEven(int x) {
+    return x % 2 == 0;
+}
+
+// Option 2: Fix the logic
+bool isOdd(int x) {
+    return x % 2 != 0;
+}
+You can resolve the inconsistency by either renaming the function to isEven or changing the logic to reflect the current name isOdd.

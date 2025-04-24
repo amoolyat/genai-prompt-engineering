@@ -1,0 +1,19 @@
+Prompt:
+Finish the Python class constructor by adding name, age, and an optional email field.
+
+`class Person:
+    def __init__(self):
+        # TODO: Add name, age, and optional email
+        pass`
+
+---
+
+Model Output:
+class Person:
+    def __init__(self, name, age, email=None):
+        self.name = name
+        self.age = age
+        self.email = email
+
+# This constructor accepts name and age as required arguments,
+# and allows email to be optionally provided.

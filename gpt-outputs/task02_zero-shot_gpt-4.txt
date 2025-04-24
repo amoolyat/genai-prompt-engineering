@@ -1,0 +1,23 @@
+Prompt:
+Identify and fix the off-by-one error in the following Python function.
+
+`def sum_range(start, end):
+    total = 0
+    for i in range(start, end):
+        total += i
+    return total`
+
+---
+
+Model Output:
+The function is intended to return the sum of numbers from `start` to `end`, including both bounds. However, Python's `range(start, end)` excludes the `end` value, resulting in an off-by-one error.
+
+To fix it, change the range to `range(start, end + 1)` so that `end` is included in the sum.
+
+Corrected version:
+
+def sum_range(start, end):
+    total = 0
+    for i in range(start, end + 1):
+        total += i
+    return total

@@ -1,0 +1,24 @@
+Prompt:
+Example:
+Input: fibonacci(5)  
+Output: 5
+
+Complete the recursive Fibonacci function in Python with proper base cases and recursive logic.
+
+`def fibonacci(n):
+    # TODO: Base cases and recursive call
+    pass`
+
+---
+
+Model Output:
+def fibonacci(n):
+    if n <= 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
+
+# This recursive function defines the base cases for 0 and 1,
+# and computes the sum of the two previous numbers for all n > 1.

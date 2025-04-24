@@ -1,0 +1,21 @@
+Prompt:
+Example:
+Input: 'name,"last, first",age'
+Output: ['name', 'last, first', 'age']
+
+Improve the given CSV parser to handle quoted fields properly.
+
+`def parse_csv_line(line):
+    return line.split(',')  # Incomplete: doesn't handle quoted fields`
+
+---
+
+Model Output:
+import csv
+import io
+
+def parse_csv_line(line):
+    return next(csv.reader(io.StringIO(line)))
+
+# This implementation uses the built-in csv module,
+# which correctly handles quoted fields, commas within quotes, and more.

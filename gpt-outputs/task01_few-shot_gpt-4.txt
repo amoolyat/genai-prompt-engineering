@@ -1,0 +1,28 @@
+Example:
+Input: ["apple", "banana", "apple"]
+Output: {"apple": 2, "banana": 1}
+
+Summarize the functionality of the following Java method that counts word frequencies in a list.
+
+`public Map<String, Integer> countWordFrequency(List<String> words) {
+    Map<String, Integer> freqMap = new HashMap<>();
+    for (String word : words) {
+        freqMap.put(word, freqMap.getOrDefault(word, 0) + 1);
+    }
+    return freqMap;
+}`
+
+---
+
+Model Output:
+This Java method, `countWordFrequency`, takes a list of words as input and returns a map that records how many times each word appears in the list.
+
+Here’s how it works:
+- It creates an empty `HashMap` called `freqMap`.
+- It loops through each word in the input list.
+- For each word, it uses `getOrDefault` to get the current count (or 0 if the word isn't yet in the map) and increments it by 1.
+- It updates the map with this new count.
+
+The method returns the complete frequency map at the end.  
+For example, given ["apple", "banana", "apple"], the returned map would be:  
+`{"apple": 2, "banana": 1}`

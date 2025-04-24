@@ -1,0 +1,22 @@
+Prompt:
+Identify the null dereference risk in the following Java method and suggest a fix.
+
+`public int getLength(String s) {
+    return s.length(); // What if s is null?
+}`
+
+---
+
+Model Output:
+The method `getLength` directly calls `s.length()` without checking if `s` is null. If `s` is null, this will throw a `NullPointerException`.
+
+To fix this, you should add a null check:
+
+public int getLength(String s) {
+    if (s == null) {
+        return 0; // or throw an exception depending on the use case
+    }
+    return s.length();
+}
+
+This ensures the method handles null input safely and avoids a runtime exception.
